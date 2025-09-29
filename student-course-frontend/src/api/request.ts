@@ -83,7 +83,7 @@ class Request {
 }
 
 const request = new Request({
-  baseURL: 'http://asdnn.com:45081/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://asdnn.com:45081/api',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json'

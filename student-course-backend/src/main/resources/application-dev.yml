@@ -5,9 +5,9 @@ spring:
       on-profile: dev
 
   datasource:
-    url: jdbc:mysql://k8s-worker02:45306/school_system?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-    username: root
-    password: root123456
+    url: jdbc:mysql://asdnn.com:45306/school_system?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USER:school_user}
+    password: ${MYSQL_PASSWORD:school_pass123}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 5

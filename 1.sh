@@ -10,3 +10,4 @@ touch student-course-backend/src/main/java/com/school/course/service/{StudentSer
 touch student-course-backend/src/main/java/com/school/course/dto/{StudentDTO.java,CourseScheduleViewDTO.java,EnrollmentDTO.java,ApiResponse.java} &&
 touch student-course-backend/src/main/java/com/school/course/exception/{GlobalExceptionHandler.java,BusinessException.java,EntityNotFoundException.java} &&
 touch student-course-backend/src/main/resources/{application.yml,application-dev.yml,data.sql}
+#看看这个在哪里？

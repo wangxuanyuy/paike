@@ -5,9 +5,9 @@ spring:
       on-profile: prod
 
   datasource:
-    url: jdbc:mysql://localhost:3306/school_system?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
-    username: ${DB_USERNAME:school_user}
-    password: ${DB_PASSWORD:school_password}
+    url: jdbc:mysql://asdnn.com:45306/school_system?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+    username: ${MYSQL_USER:school_user}
+    password: ${MYSQL_PASSWORD:school_pass123}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 10
@@ -19,8 +19,20 @@ spring:
   # 生产环境JPA配置
   jpa:
     hibernate:
-      ddl-auto: validate  # 生产环境只验证，不自动修改表结构
+      ddl-auto: none  # 生产环境不进行任何DDL操作
+    generate-ddl: false   # 不生成DDL
+    naming:
+      # 关键配置：保持表名和列名的原始大小写
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
     show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  # 数据初始化配置 - 禁用SQL脚本执行
+  sql:
+    init:
+      mode: never  # 不执行任何SQL初始化脚本
 
   cache:
     type: simple
