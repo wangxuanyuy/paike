@@ -1,0 +1,7 @@
+{
+  // Open integrated terminal in the workspace root by default
+  "terminal.integrated.cwd": "D:\\1vueproj\\paike",
+  // Ensure PowerShell is the default profile on Windows (optional)
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "java.compile.nullAnalysis.mode": "automatic"
+}

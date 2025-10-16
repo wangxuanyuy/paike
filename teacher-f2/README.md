@@ -25,7 +25,7 @@
 CREATE DATABASE school_system CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- 创建表结构
--- 请运行 database-schema.sql 中的建表语句
+-- 请运行 student-course-backend/src/main/resources/data.sql 中的建表语句
 ```
 
 ### 2. 后端启动
@@ -61,13 +61,28 @@ npm run dev
 
 ```
 paike/
-├── student-course-backend/          # 学生端 Spring Boot 后端
-├── teacher-course-backend/          # 教师端 Spring Boot 后端
-├── student-course-frontend/         # 学生端 Vue 3 前端
-├── teacher-course-frontend/         # 教师端 Vue 3 前端
-├── database-schema.sql              # 数据库架构文件
-├── setup.sh                         # Linux/Mac 部署脚本
-├── setup.bat                        # Windows 部署脚本
+├── student-course-backend/          # Spring Boot 后端
+│   ├── src/main/java/com/school/course/
+│   │   ├── config/                  # 配置类
+│   │   ├── controller/              # 控制器
+│   │   ├── entity/                  # 实体类
+│   │   ├── repository/              # 数据访问层
+│   │   ├── service/                 # 业务逻辑层
+│   │   ├── dto/                     # 数据传输对象
+│   │   └── exception/               # 异常处理
+│   └── src/main/resources/
+│       ├── application.yml          # 主配置文件
+│       ├── application-dev.yml      # 开发环境配置
+│       └── data.sql                 # 初始化数据
+├── student-course-frontend/         # Vue 3 前端
+│   ├── src/
+│   │   ├── api/                     # API 接口
+│   │   ├── components/              # 组件
+│   │   ├── views/                   # 页面
+│   │   ├── stores/                  # 状态管理
+│   │   ├── types/                   # 类型定义
+│   │   └── router/                  # 路由配置
+│   └── package.json
 └── README.md
 ```
 
@@ -80,9 +95,9 @@ paike/
 ```yaml
 spring:
   datasource:
-    url: jdbc:mysql://asdnn.com:45306/school_system
-    username: school_user
-    password: school_pass123
+    url: jdbc:mysql://localhost:3306/school_system
+    username: your_username
+    password: your_password
 ```
 
 ### 前端配置

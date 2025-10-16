@@ -1,0 +1,17 @@
+FROM ubuntu:22.04
+
+# 设置非交互模式
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 直接修改 apt 源为国内镜像（不涉及 DNS 解析）
+RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+    sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+
+# 安装 ca-certificates 首先更新证书
+RUN apt-get update 
+
+# 新建开发用户
+RUN useradd -m dev && echo "dev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER root
+WORKDIR /workspace
